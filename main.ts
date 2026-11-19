@@ -1,3 +1,4 @@
+// PALM LINE — GTA VI trophy tracker & guide (v1): authored for the gta6-trophy-guide-01 bounty; plumbing below is the kit's, unchanged.
 // A working gta6-trophy-guide-01 entry (Node 22, standard library only): the guide is this directory's app/ folder,
 // plain static files a browser opens at app/index.html (ES modules, CSS, no build step), offline: it loads nothing
 // over the network, and its trophy list and guides are app/data/trophies.json. The program hands it in: it copies app/
