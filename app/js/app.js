@@ -61,7 +61,16 @@
       input.value = String(PalmStore.getCount(t.id));
       input.setAttribute('aria-label', 'Your count for ' + t.name);
       input.addEventListener('click', (e) => e.stopPropagation());
-      input.addEventListener('change', () => { PalmStore.setCount(t.id, Number(input.value)); renderProgress(); });
+      input.addEventListener('change', () => {
+        PalmStore.setCount(t.id, Number(input.value));
+        // Reaching the target count means the trophy is earned — tick it automatically.
+        if (Number(input.value) >= t.count.need && !PalmStore.isEarned(t.id)) {
+          PalmStore.toggle(t.id, true);
+          renderAll();
+          return;
+        }
+        renderProgress();
+      });
       c.append(input, document.createTextNode(' / ' + fmt(t.count.need) + ' ' + t.count.unit));
       meta.append(c);
     }

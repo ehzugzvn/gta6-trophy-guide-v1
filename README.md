@@ -49,3 +49,11 @@ copies `app/` and `screenshots/` to the output directory and writes `dossier.jso
 the vendored `vendor/makefun-frontend.ts`. The screenshots show the full tracker with a guide
 open, a cited collectible guide with its missable banner, the missable filter, and spoiler
 mode in action.
+
+## Data
+
+`app/data/trophies.json` holds the full list: the 55 official names, descriptions and grades
+(kept byte-exact), plus for every trophy an original guide, cited steps, its sources, kind,
+hidden flag, missable verdict with its window, counter target where the official description
+gives one, and its roadmap stage. Trophy data loads from that file at runtime — nothing is
+fetched from the network.

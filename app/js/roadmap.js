@@ -27,7 +27,7 @@ const PalmRoadmap = (() => {
       b.type = 'button';
       b.className = 'stage-chip' + (activeStage === s.id ? ' on' : '');
       const title = document.createElement('b');
-      title.textContent = s.name + ' — ' + map[s.id].earned + '/' + map[s.id].total;
+      title.textContent = s.id + ' · ' + s.name + ' — ' + map[s.id].earned + '/' + map[s.id].total;
       const hint = document.createElement('span');
       hint.textContent = s.hint;
       b.append(title, hint);

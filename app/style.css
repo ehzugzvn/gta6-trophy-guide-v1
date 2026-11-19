@@ -88,6 +88,7 @@ button:hover, .import-btn:hover { background: var(--palm-soft); }
 .detail {
   background: var(--card); border: 1px solid var(--line); border-radius: 8px;
   padding: 14px 16px; position: sticky; top: 12px;
+  max-height: calc(100vh - 24px); overflow-y: auto;
 }
 .detail h3 { margin: 0 0 2px; font-size: 20px; font-family: Georgia, serif; color: var(--palm); }
 .detail .official { color: var(--muted); font-style: italic; margin: 0 0 8px; }

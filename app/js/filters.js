@@ -19,7 +19,7 @@ const PalmFilters = (() => {
     if (state.grade !== 'all' && t.grade !== state.grade) return false;
     if (state.query) {
       const masked = spoilerOn && t.hidden && !isEarned;
-      const hay = masked ? '' : (t.name + ' ' + t.description + ' ' + t.guide).toLowerCase();
+      const hay = masked ? '' : (t.name + ' ' + t.description + ' ' + t.guide + ' ' + t.kind + ' ' + t.grade).toLowerCase();
       if (!hay.includes(state.query)) return false;
     }
     return true;

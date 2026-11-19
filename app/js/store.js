@@ -19,7 +19,7 @@ const PalmStore = (() => {
   function setSpoiler(on) { state.spoiler = !!on; save(); }
   function getSpoiler() { return !!state.spoiler; }
   function reset() { earnedSet.clear(); state.counts = {}; save(); }
-  function exportJson() { return JSON.stringify({ app: 'palm-line', version: 1, earned: [...earnedSet], counts: state.counts, spoiler: state.spoiler }, null, 1); }
+  function exportJson() { return JSON.stringify({ app: 'palm-line', version: 1, exportedAt: new Date().toISOString(), earned: [...earnedSet], counts: state.counts, spoiler: state.spoiler }, null, 1); }
   function importJson(text) {
     const data = JSON.parse(text);
     if (!data || !Array.isArray(data.earned)) throw new Error('not a PALM LINE export');

@@ -45,12 +45,6 @@ const PalmGuide = (() => {
       ol.append(li);
     }
     el.append(ol);
-    if (t.note) {
-      const note = document.createElement('p');
-      note.className = 'note';
-      note.textContent = 'Where sources stand: ' + t.note;
-      el.append(note);
-    }
     const box = document.createElement('div');
     box.className = 'sources-box';
     const bh = document.createElement('strong'); bh.textContent = 'Sources for this trophy'; box.append(bh);
@@ -68,6 +62,12 @@ const PalmGuide = (() => {
     }
     box.append(ul);
     el.append(box);
+    if (t.note) {
+      const note = document.createElement('p');
+      note.className = 'note';
+      note.textContent = 'Where sources stand: ' + t.note;
+      el.append(note);
+    }
   }
   return { renderDetail, citeMarks };
 })();
