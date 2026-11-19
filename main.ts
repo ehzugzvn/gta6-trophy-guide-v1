@@ -1,4 +1,5 @@
-// PALM LINE — GTA VI trophy tracker & guide (v1): authored for the gta6-trophy-guide-01 bounty; plumbing below is the kit's, unchanged.
+// PALM LINE, first cut: a pocket companion for the GTA VI platinum run — every one of the 55 trophies
+// tracked, filtered and explained in plain words inside app/, handed in here for gta6-trophy-guide-01.
 // A working gta6-trophy-guide-01 entry (Node 22, standard library only): the guide is this directory's app/ folder,
 // plain static files a browser opens at app/index.html (ES modules, CSS, no build step), offline: it loads nothing
 // over the network, and its trophy list and guides are app/data/trophies.json. The program hands it in: it copies app/
@@ -15,13 +16,15 @@
 // Outside the grader's container, MAKEFUN_OUTPUT_DIR stands in for /output:
 //   mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
 
-import { cpSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildDossier } from './vendor/makefun-frontend.ts';
 
 const here = fileURLToPath(new URL('.', import.meta.url));
 const out = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
+const trophyTotal = JSON.parse(readFileSync(join(here, 'app', 'data', 'trophies.json'), 'utf8')).trophies.length;
+console.log(`PALM LINE: handing in the GTA VI trophy guide — ${trophyTotal} trophies tracked, roadmap and all.`);
 
 mkdirSync(out, { recursive: true });
 cpSync(join(here, 'app'), join(out, 'app'), { recursive: true });
